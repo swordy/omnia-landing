@@ -97,15 +97,10 @@
             animation: marquee-scroll var(--duration, 30s) linear infinite;
         }
         .logo-marquee-track:hover { animation-play-state: paused; }
-        .logo-item { height: 36px; width: auto; opacity: 0.5; filter: grayscale(100%); transition: all 0.4s ease; flex-shrink: 0; }
-        .logo-item:hover { opacity: 1; filter: grayscale(0%); }
-        .logo-item.on-dark { filter: grayscale(100%) brightness(0) invert(1); opacity: 0.4; }
-        .logo-item.on-dark:hover { filter: brightness(0) invert(1); opacity: 0.85; }
-        /* Real PNG/WebP logos with built-in navy tint and transparency */
-        .logo-item.real { filter: none; opacity: 0.55; }
-        .logo-item.real:hover { filter: none; opacity: 1; }
-        .logo-item.real.on-dark { filter: brightness(0) invert(1) opacity(0.45); opacity: 1; }
-        .logo-item.real.on-dark:hover { filter: brightness(0) invert(1) opacity(0.9); opacity: 1; }
+        .logo-item { height: 36px; width: auto; opacity: 0.45; filter: brightness(0) invert(1); transition: opacity 0.35s ease, filter 0.35s ease; flex-shrink: 0; }
+        .logo-item:hover { opacity: 1; filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.5)); }
+        .logo-item.on-light { filter: grayscale(100%); opacity: 0.45; }
+        .logo-item.on-light:hover { filter: grayscale(0%); opacity: 1; }
         .marquee-wrap.on-navy::before { left: 0; background: linear-gradient(to right, #0F1D33, transparent); }
         .marquee-wrap.on-navy::after { right: 0; background: linear-gradient(to left, #0F1D33, transparent); }
         .marquee-wrap.on-light::before { left: 0; background: linear-gradient(to right, #EFF1F5, transparent); }
@@ -320,77 +315,77 @@
                 <p class="text-center text-white/25 text-xs uppercase tracking-[0.25em] font-bold mb-6">Ils nous font confiance</p>
                 <div class="marquee-wrap on-navy py-2">
                     <div class="logo-marquee-track" style="--duration:50s">
-                        <img src="img/logos/stet.webp" alt="STET" class="logo-item real on-dark" />
-                        <img src="img/logos/europ-assistance.webp" alt="Europ Assistance" class="logo-item real on-dark" />
-                        <img src="img/logos/societe-generale.svg" alt="Société Générale" class="logo-item on-dark" />
-                        <img src="img/logos/bollore.webp" alt="Bolloré" class="logo-item real on-dark" />
-                        <img src="img/logos/saint-gobain.svg" alt="Saint-Gobain" class="logo-item on-dark" />
-                        <img src="img/logos/comu-titres.svg" alt="Comu Titres" class="logo-item on-dark" />
-                        <img src="img/logos/essilor.webp" alt="Essilor" class="logo-item real on-dark" />
-                        <img src="img/logos/sephora.webp" alt="Sephora" class="logo-item real on-dark" />
-                        <img src="img/logos/up-group.svg" alt="Up Group" class="logo-item on-dark" />
-                        <img src="img/logos/mediapost.svg" alt="Mediapost" class="logo-item on-dark" />
-                        <img src="img/logos/bb-hotels.webp" alt="B&B Hotels" class="logo-item real on-dark" />
-                        <img src="img/logos/kering.webp" alt="Kering" class="logo-item real on-dark" />
-                        <img src="img/logos/mcdonalds.svg" alt="McDonald's" class="logo-item on-dark" />
-                        <img src="img/logos/lvmh.webp" alt="LVMH" class="logo-item real on-dark" />
-                        <img src="img/logos/compagnie-des-alpes.svg" alt="Compagnie des Alpes" class="logo-item on-dark" />
-                        <img src="img/logos/apave.webp" alt="Apave" class="logo-item real on-dark" />
-                        <img src="img/logos/saint-laurent.webp" alt="Saint Laurent" class="logo-item real on-dark" />
-                        <img src="img/logos/dassault-systemes.webp" alt="Dassault Systèmes" class="logo-item real on-dark" />
-                        <img src="img/logos/edf-renouvelables.webp" alt="EDF Renouvelables" class="logo-item real on-dark" />
-                        <img src="img/logos/christian-dior.webp" alt="Christian Dior" class="logo-item real on-dark" />
-                        <img src="img/logos/epexspot.svg" alt="Epexspot" class="logo-item on-dark" />
-                        <img src="img/logos/bpce.webp" alt="Groupe BPCE" class="logo-item real on-dark" />
-                        <img src="img/logos/weborama.svg" alt="Weborama" class="logo-item on-dark" />
-                        <img src="img/logos/lazard.webp" alt="Lazard" class="logo-item real on-dark" />
-                        <img src="img/logos/rootle.svg" alt="Rootle" class="logo-item on-dark" />
-                        <img src="img/logos/neoen.svg" alt="Neoen" class="logo-item on-dark" />
-                        <img src="img/logos/euler-hermes.svg" alt="Euler Hermes" class="logo-item on-dark" />
-                        <img src="img/logos/pum.svg" alt="PUM" class="logo-item on-dark" />
-                        <img src="img/logos/air-france.svg" alt="Air France" class="logo-item on-dark" />
-                        <img src="img/logos/carglass.webp" alt="Carglass" class="logo-item real on-dark" />
-                        <img src="img/logos/pluxee.svg" alt="Pluxee" class="logo-item on-dark" />
-                        <img src="img/logos/the-kooples.svg" alt="The Kooples" class="logo-item on-dark" />
-                        <img src="img/logos/cma-cgm.webp" alt="CMA CGM" class="logo-item real on-dark" />
-                        <img src="img/logos/regicom.webp" alt="Regicom" class="logo-item real on-dark" />
-                        <img src="img/logos/nearcare.webp" alt="Nearcare" class="logo-item real on-dark" />
+                        <img src="img/logos/stet.webp" alt="STET" class="logo-item" />
+                        <img src="img/logos/europ-assistance.webp" alt="Europ Assistance" class="logo-item" />
+                        <img src="img/logos/societe-generale.webp" alt="Société Générale" class="logo-item" />
+                        <img src="img/logos/bollore.webp" alt="Bolloré" class="logo-item" />
+                        <img src="img/logos/saint-gobain.webp" alt="Saint-Gobain" class="logo-item" />
+                        <img src="img/logos/comu-titres.webp" alt="Comu Titres" class="logo-item" />
+                        <img src="img/logos/essilor.webp" alt="Essilor" class="logo-item" />
+                        <img src="img/logos/sephora.webp" alt="Sephora" class="logo-item" />
+                        <img src="img/logos/up-group.webp" alt="Up Group" class="logo-item" />
+                        <img src="img/logos/mediapost.webp" alt="Mediapost" class="logo-item" />
+                        <img src="img/logos/bb-hotels.webp" alt="B&B Hotels" class="logo-item" />
+                        <img src="img/logos/kering.webp" alt="Kering" class="logo-item" />
+                        <img src="img/logos/mcdonalds.webp" alt="McDonald's" class="logo-item" />
+                        <img src="img/logos/lvmh.webp" alt="LVMH" class="logo-item" />
+                        <img src="img/logos/compagnie-des-alpes.webp" alt="Compagnie des Alpes" class="logo-item" />
+                        <img src="img/logos/apave.webp" alt="Apave" class="logo-item" />
+                        <img src="img/logos/saint-laurent.webp" alt="Saint Laurent" class="logo-item" />
+                        <img src="img/logos/dassault-systemes.webp" alt="Dassault Systèmes" class="logo-item" />
+                        <img src="img/logos/edf-renouvelables.webp" alt="EDF Renouvelables" class="logo-item" />
+                        <img src="img/logos/christian-dior.webp" alt="Christian Dior" class="logo-item" />
+                        <img src="img/logos/epexspot.webp" alt="Epexspot" class="logo-item" />
+                        <img src="img/logos/bpce.webp" alt="Groupe BPCE" class="logo-item" />
+                        <img src="img/logos/weborama.webp" alt="Weborama" class="logo-item" />
+                        <img src="img/logos/lazard.webp" alt="Lazard" class="logo-item" />
+                        <img src="img/logos/rootle.webp" alt="Rootle" class="logo-item" />
+                        <img src="img/logos/neoen.webp" alt="Neoen" class="logo-item" />
+                        <img src="img/logos/euler-hermes.webp" alt="Euler Hermes" class="logo-item" />
+                        <img src="img/logos/pum.webp" alt="PUM" class="logo-item" />
+                        <img src="img/logos/air-france.webp" alt="Air France" class="logo-item" />
+                        <img src="img/logos/carglass.webp" alt="Carglass" class="logo-item" />
+                        <img src="img/logos/pluxee.webp" alt="Pluxee" class="logo-item" />
+                        <img src="img/logos/the-kooples.webp" alt="The Kooples" class="logo-item" />
+                        <img src="img/logos/cma-cgm.webp" alt="CMA CGM" class="logo-item" />
+                        <img src="img/logos/regicom.webp" alt="Regicom" class="logo-item" />
+                        <img src="img/logos/nearcare.webp" alt="Nearcare" class="logo-item" />
                         <!-- duplicate for seamless loop -->
-                        <img src="img/logos/stet.webp" alt="STET" class="logo-item real on-dark" />
-                        <img src="img/logos/europ-assistance.webp" alt="Europ Assistance" class="logo-item real on-dark" />
-                        <img src="img/logos/societe-generale.svg" alt="Société Générale" class="logo-item on-dark" />
-                        <img src="img/logos/bollore.webp" alt="Bolloré" class="logo-item real on-dark" />
-                        <img src="img/logos/saint-gobain.svg" alt="Saint-Gobain" class="logo-item on-dark" />
-                        <img src="img/logos/comu-titres.svg" alt="Comu Titres" class="logo-item on-dark" />
-                        <img src="img/logos/essilor.webp" alt="Essilor" class="logo-item real on-dark" />
-                        <img src="img/logos/sephora.webp" alt="Sephora" class="logo-item real on-dark" />
-                        <img src="img/logos/up-group.svg" alt="Up Group" class="logo-item on-dark" />
-                        <img src="img/logos/mediapost.svg" alt="Mediapost" class="logo-item on-dark" />
-                        <img src="img/logos/bb-hotels.webp" alt="B&B Hotels" class="logo-item real on-dark" />
-                        <img src="img/logos/kering.webp" alt="Kering" class="logo-item real on-dark" />
-                        <img src="img/logos/mcdonalds.svg" alt="McDonald's" class="logo-item on-dark" />
-                        <img src="img/logos/lvmh.webp" alt="LVMH" class="logo-item real on-dark" />
-                        <img src="img/logos/compagnie-des-alpes.svg" alt="Compagnie des Alpes" class="logo-item on-dark" />
-                        <img src="img/logos/apave.webp" alt="Apave" class="logo-item real on-dark" />
-                        <img src="img/logos/saint-laurent.webp" alt="Saint Laurent" class="logo-item real on-dark" />
-                        <img src="img/logos/dassault-systemes.webp" alt="Dassault Systèmes" class="logo-item real on-dark" />
-                        <img src="img/logos/edf-renouvelables.webp" alt="EDF Renouvelables" class="logo-item real on-dark" />
-                        <img src="img/logos/christian-dior.webp" alt="Christian Dior" class="logo-item real on-dark" />
-                        <img src="img/logos/epexspot.svg" alt="Epexspot" class="logo-item on-dark" />
-                        <img src="img/logos/bpce.webp" alt="Groupe BPCE" class="logo-item real on-dark" />
-                        <img src="img/logos/weborama.svg" alt="Weborama" class="logo-item on-dark" />
-                        <img src="img/logos/lazard.webp" alt="Lazard" class="logo-item real on-dark" />
-                        <img src="img/logos/rootle.svg" alt="Rootle" class="logo-item on-dark" />
-                        <img src="img/logos/neoen.svg" alt="Neoen" class="logo-item on-dark" />
-                        <img src="img/logos/euler-hermes.svg" alt="Euler Hermes" class="logo-item on-dark" />
-                        <img src="img/logos/pum.svg" alt="PUM" class="logo-item on-dark" />
-                        <img src="img/logos/air-france.svg" alt="Air France" class="logo-item on-dark" />
-                        <img src="img/logos/carglass.webp" alt="Carglass" class="logo-item real on-dark" />
-                        <img src="img/logos/pluxee.svg" alt="Pluxee" class="logo-item on-dark" />
-                        <img src="img/logos/the-kooples.svg" alt="The Kooples" class="logo-item on-dark" />
-                        <img src="img/logos/cma-cgm.webp" alt="CMA CGM" class="logo-item real on-dark" />
-                        <img src="img/logos/regicom.webp" alt="Regicom" class="logo-item real on-dark" />
-                        <img src="img/logos/nearcare.webp" alt="Nearcare" class="logo-item real on-dark" />
+                        <img src="img/logos/stet.webp" alt="STET" class="logo-item" />
+                        <img src="img/logos/europ-assistance.webp" alt="Europ Assistance" class="logo-item" />
+                        <img src="img/logos/societe-generale.webp" alt="Société Générale" class="logo-item" />
+                        <img src="img/logos/bollore.webp" alt="Bolloré" class="logo-item" />
+                        <img src="img/logos/saint-gobain.webp" alt="Saint-Gobain" class="logo-item" />
+                        <img src="img/logos/comu-titres.webp" alt="Comu Titres" class="logo-item" />
+                        <img src="img/logos/essilor.webp" alt="Essilor" class="logo-item" />
+                        <img src="img/logos/sephora.webp" alt="Sephora" class="logo-item" />
+                        <img src="img/logos/up-group.webp" alt="Up Group" class="logo-item" />
+                        <img src="img/logos/mediapost.webp" alt="Mediapost" class="logo-item" />
+                        <img src="img/logos/bb-hotels.webp" alt="B&B Hotels" class="logo-item" />
+                        <img src="img/logos/kering.webp" alt="Kering" class="logo-item" />
+                        <img src="img/logos/mcdonalds.webp" alt="McDonald's" class="logo-item" />
+                        <img src="img/logos/lvmh.webp" alt="LVMH" class="logo-item" />
+                        <img src="img/logos/compagnie-des-alpes.webp" alt="Compagnie des Alpes" class="logo-item" />
+                        <img src="img/logos/apave.webp" alt="Apave" class="logo-item" />
+                        <img src="img/logos/saint-laurent.webp" alt="Saint Laurent" class="logo-item" />
+                        <img src="img/logos/dassault-systemes.webp" alt="Dassault Systèmes" class="logo-item" />
+                        <img src="img/logos/edf-renouvelables.webp" alt="EDF Renouvelables" class="logo-item" />
+                        <img src="img/logos/christian-dior.webp" alt="Christian Dior" class="logo-item" />
+                        <img src="img/logos/epexspot.webp" alt="Epexspot" class="logo-item" />
+                        <img src="img/logos/bpce.webp" alt="Groupe BPCE" class="logo-item" />
+                        <img src="img/logos/weborama.webp" alt="Weborama" class="logo-item" />
+                        <img src="img/logos/lazard.webp" alt="Lazard" class="logo-item" />
+                        <img src="img/logos/rootle.webp" alt="Rootle" class="logo-item" />
+                        <img src="img/logos/neoen.webp" alt="Neoen" class="logo-item" />
+                        <img src="img/logos/euler-hermes.webp" alt="Euler Hermes" class="logo-item" />
+                        <img src="img/logos/pum.webp" alt="PUM" class="logo-item" />
+                        <img src="img/logos/air-france.webp" alt="Air France" class="logo-item" />
+                        <img src="img/logos/carglass.webp" alt="Carglass" class="logo-item" />
+                        <img src="img/logos/pluxee.webp" alt="Pluxee" class="logo-item" />
+                        <img src="img/logos/the-kooples.webp" alt="The Kooples" class="logo-item" />
+                        <img src="img/logos/cma-cgm.webp" alt="CMA CGM" class="logo-item" />
+                        <img src="img/logos/regicom.webp" alt="Regicom" class="logo-item" />
+                        <img src="img/logos/nearcare.webp" alt="Nearcare" class="logo-item" />
                     </div>
                 </div>
             </div>
@@ -403,11 +398,6 @@
                 <span class="text-cat-blue font-bold tracking-wider uppercase text-sm mb-2 block">Le paradoxe des decideurs IT</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">L'innovation face au risque</h2>
                 <p class="text-gray-600 text-lg">Ne freinez pas l'innovation : encadrez-la. L'usage silote de l'IA genere des risques de confidentialite et de la dette technique.</p>
-            </div>
-
-            <!-- Slide 2 as visual -->
-            <div class="mb-12 reveal-up delay-100">
-                <img src="img/slides/slide-2.webp" loading="lazy" alt="Shadow AI vs OmnIA" class="slide-img w-full max-w-4xl mx-auto">
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 items-center glass-card p-8 rounded-2xl reveal-up delay-200">
@@ -438,56 +428,53 @@
         </div>
     </section>
 
-    <!-- Approche Globale (Slide 3) -->
+    <!-- Approche Globale -->
     <section class="py-16 bg-white relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="reveal-up">
-                <img src="img/slides/slide-3.webp" loading="lazy" alt="Approche globale : de l'humain a l'infrastructure" class="slide-img w-full max-w-5xl mx-auto">
-            </div>
             <div class="mb-10 reveal-up delay-100">
                 <div class="marquee-wrap on-light py-3">
                     <div class="logo-marquee-track" style="--duration:45s">
-                        <img src="img/logos/stet.webp" alt="STET" class="logo-item real" />
-                        <img src="img/logos/europ-assistance.webp" alt="Europ Assistance" class="logo-item real" />
-                        <img src="img/logos/societe-generale.svg" alt="Société Générale" class="logo-item" />
-                        <img src="img/logos/bollore.webp" alt="Bolloré" class="logo-item real" />
-                        <img src="img/logos/saint-gobain.svg" alt="Saint-Gobain" class="logo-item" />
-                        <img src="img/logos/essilor.webp" alt="Essilor" class="logo-item real" />
-                        <img src="img/logos/sephora.webp" alt="Sephora" class="logo-item real" />
-                        <img src="img/logos/kering.webp" alt="Kering" class="logo-item real" />
-                        <img src="img/logos/lvmh.webp" alt="LVMH" class="logo-item real" />
-                        <img src="img/logos/air-france.svg" alt="Air France" class="logo-item" />
-                        <img src="img/logos/cma-cgm.webp" alt="CMA CGM" class="logo-item real" />
-                        <img src="img/logos/dassault-systemes.webp" alt="Dassault Systèmes" class="logo-item real" />
-                        <img src="img/logos/edf-renouvelables.webp" alt="EDF Renouvelables" class="logo-item real" />
-                        <img src="img/logos/christian-dior.webp" alt="Christian Dior" class="logo-item real" />
-                        <img src="img/logos/saint-laurent.webp" alt="Saint Laurent" class="logo-item real" />
-                        <img src="img/logos/bpce.webp" alt="Groupe BPCE" class="logo-item real" />
-                        <img src="img/logos/lazard.webp" alt="Lazard" class="logo-item real" />
-                        <img src="img/logos/regicom.webp" alt="Regicom" class="logo-item real" />
-                        <img src="img/logos/nearcare.webp" alt="Nearcare" class="logo-item real" />
-                        <img src="img/logos/carglass.webp" alt="Carglass" class="logo-item real" />
+                        <img src="img/logos/stet.webp" alt="STET" class="logo-item on-light" />
+                        <img src="img/logos/europ-assistance.webp" alt="Europ Assistance" class="logo-item on-light" />
+                        <img src="img/logos/societe-generale.webp" alt="Société Générale" class="logo-item on-light" />
+                        <img src="img/logos/bollore.webp" alt="Bolloré" class="logo-item on-light" />
+                        <img src="img/logos/saint-gobain.webp" alt="Saint-Gobain" class="logo-item on-light" />
+                        <img src="img/logos/essilor.webp" alt="Essilor" class="logo-item on-light" />
+                        <img src="img/logos/sephora.webp" alt="Sephora" class="logo-item on-light" />
+                        <img src="img/logos/kering.webp" alt="Kering" class="logo-item on-light" />
+                        <img src="img/logos/lvmh.webp" alt="LVMH" class="logo-item on-light" />
+                        <img src="img/logos/air-france.webp" alt="Air France" class="logo-item on-light" />
+                        <img src="img/logos/cma-cgm.webp" alt="CMA CGM" class="logo-item on-light" />
+                        <img src="img/logos/dassault-systemes.webp" alt="Dassault Systèmes" class="logo-item on-light" />
+                        <img src="img/logos/edf-renouvelables.webp" alt="EDF Renouvelables" class="logo-item on-light" />
+                        <img src="img/logos/christian-dior.webp" alt="Christian Dior" class="logo-item on-light" />
+                        <img src="img/logos/saint-laurent.webp" alt="Saint Laurent" class="logo-item on-light" />
+                        <img src="img/logos/bpce.webp" alt="Groupe BPCE" class="logo-item on-light" />
+                        <img src="img/logos/lazard.webp" alt="Lazard" class="logo-item on-light" />
+                        <img src="img/logos/regicom.webp" alt="Regicom" class="logo-item on-light" />
+                        <img src="img/logos/nearcare.webp" alt="Nearcare" class="logo-item on-light" />
+                        <img src="img/logos/carglass.webp" alt="Carglass" class="logo-item on-light" />
                         <!-- duplicate for seamless loop -->
-                        <img src="img/logos/stet.webp" alt="STET" class="logo-item real" />
-                        <img src="img/logos/europ-assistance.webp" alt="Europ Assistance" class="logo-item real" />
-                        <img src="img/logos/societe-generale.svg" alt="Société Générale" class="logo-item" />
-                        <img src="img/logos/bollore.webp" alt="Bolloré" class="logo-item real" />
-                        <img src="img/logos/saint-gobain.svg" alt="Saint-Gobain" class="logo-item" />
-                        <img src="img/logos/essilor.webp" alt="Essilor" class="logo-item real" />
-                        <img src="img/logos/sephora.webp" alt="Sephora" class="logo-item real" />
-                        <img src="img/logos/kering.webp" alt="Kering" class="logo-item real" />
-                        <img src="img/logos/lvmh.webp" alt="LVMH" class="logo-item real" />
-                        <img src="img/logos/air-france.svg" alt="Air France" class="logo-item" />
-                        <img src="img/logos/cma-cgm.webp" alt="CMA CGM" class="logo-item real" />
-                        <img src="img/logos/dassault-systemes.webp" alt="Dassault Systèmes" class="logo-item real" />
-                        <img src="img/logos/edf-renouvelables.webp" alt="EDF Renouvelables" class="logo-item real" />
-                        <img src="img/logos/christian-dior.webp" alt="Christian Dior" class="logo-item real" />
-                        <img src="img/logos/saint-laurent.webp" alt="Saint Laurent" class="logo-item real" />
-                        <img src="img/logos/bpce.webp" alt="Groupe BPCE" class="logo-item real" />
-                        <img src="img/logos/lazard.webp" alt="Lazard" class="logo-item real" />
-                        <img src="img/logos/regicom.webp" alt="Regicom" class="logo-item real" />
-                        <img src="img/logos/nearcare.webp" alt="Nearcare" class="logo-item real" />
-                        <img src="img/logos/carglass.webp" alt="Carglass" class="logo-item real" />
+                        <img src="img/logos/stet.webp" alt="STET" class="logo-item on-light" />
+                        <img src="img/logos/europ-assistance.webp" alt="Europ Assistance" class="logo-item on-light" />
+                        <img src="img/logos/societe-generale.webp" alt="Société Générale" class="logo-item on-light" />
+                        <img src="img/logos/bollore.webp" alt="Bolloré" class="logo-item on-light" />
+                        <img src="img/logos/saint-gobain.webp" alt="Saint-Gobain" class="logo-item on-light" />
+                        <img src="img/logos/essilor.webp" alt="Essilor" class="logo-item on-light" />
+                        <img src="img/logos/sephora.webp" alt="Sephora" class="logo-item on-light" />
+                        <img src="img/logos/kering.webp" alt="Kering" class="logo-item on-light" />
+                        <img src="img/logos/lvmh.webp" alt="LVMH" class="logo-item on-light" />
+                        <img src="img/logos/air-france.webp" alt="Air France" class="logo-item on-light" />
+                        <img src="img/logos/cma-cgm.webp" alt="CMA CGM" class="logo-item on-light" />
+                        <img src="img/logos/dassault-systemes.webp" alt="Dassault Systèmes" class="logo-item on-light" />
+                        <img src="img/logos/edf-renouvelables.webp" alt="EDF Renouvelables" class="logo-item on-light" />
+                        <img src="img/logos/christian-dior.webp" alt="Christian Dior" class="logo-item on-light" />
+                        <img src="img/logos/saint-laurent.webp" alt="Saint Laurent" class="logo-item on-light" />
+                        <img src="img/logos/bpce.webp" alt="Groupe BPCE" class="logo-item on-light" />
+                        <img src="img/logos/lazard.webp" alt="Lazard" class="logo-item on-light" />
+                        <img src="img/logos/regicom.webp" alt="Regicom" class="logo-item on-light" />
+                        <img src="img/logos/nearcare.webp" alt="Nearcare" class="logo-item on-light" />
+                        <img src="img/logos/carglass.webp" alt="Carglass" class="logo-item on-light" />
                     </div>
                 </div>
             </div>
@@ -534,8 +521,13 @@
                             <p class="text-gray-600 text-lg leading-relaxed mb-6">L'intelligence artificielle n'est puissante que si vos equipes savent la diriger. Former vos equipes est notre priorite pour maximiser l'adoption tout en minimisant les risques.</p>
                             <p class="text-gray-600 text-lg leading-relaxed">L'integration de votre projet au sein de notre <strong>LAB IA</strong> assure des fondations architecturales solides et une velocite accrue.</p>
                         </div>
-                        <div class="lg:w-1/2 w-full">
-                            <img src="img/slides/slide-4.webp" loading="lazy" alt="Pilier 1 : Conseil & Acculturation" class="slide-img w-full rounded-2xl">
+                        <div class="lg:w-1/2 w-full hidden lg:block">
+                            <div class="aspect-video rounded-2xl bg-gradient-to-br from-purple-500/10 to-blue-500/5 border border-purple-200/30 flex items-center justify-center">
+                                <div class="text-center text-purple-300/50">
+                                    <svg class="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                    <span class="text-sm font-medium tracking-widest uppercase opacity-50">Conseil & Acculturation</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -552,8 +544,13 @@
                             <p class="text-gray-300 text-lg leading-relaxed mb-6">Le socle de gouvernance indispensable. Ce portail remplace l'utilisation sauvage et dispersee des IA generatives par un environnement hermetique, maitrise et securise.</p>
                             <p class="text-gray-300 text-lg leading-relaxed">Beneficiez d'un catalogue d'assistants metiers connectes a vos propres outils et bases de donnees, le tout gere avec une tracabilite totale.</p>
                         </div>
-                        <div class="lg:w-1/2 w-full relative z-10">
-                            <img src="img/slides/slide-5.webp" loading="lazy" alt="Pilier 2 : Portail Agentique Securise" class="slide-img w-full rounded-2xl border border-white/10">
+                        <div class="lg:w-1/2 w-full relative z-10 hidden lg:block">
+                            <div class="aspect-video rounded-2xl bg-gradient-to-br from-blue-500/10 to-navy-mid/30 border border-blue-400/20 flex items-center justify-center">
+                                <div class="text-center text-blue-300/50">
+                                    <svg class="w-16 h-16 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                    <span class="text-sm font-medium tracking-widest uppercase opacity-50">Portail Securise</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -570,12 +567,7 @@
                             <p class="text-gray-600 text-lg leading-relaxed">De l'orchestration multi-cloud a la migration massive de vos systemes BI legacy, la Factory accelere drastiquement vos chantiers de modernisation.</p>
                         </div>
                         <div class="lg:w-1/2 w-full">
-                            <div class="relative overflow-hidden rounded-3xl">
-                                <img src="img/slides/slide-6.webp" loading="lazy" alt="Pilier 3 : Factory Agentique" class="slide-img w-full rounded-2xl" />
-                                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1B2A4A]/90" style="top:55%"></div>
-                                <div class="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#1B2A4A]/60" style="bottom:70%"></div>
-                                <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(15,29,51,0.3) 0%, rgba(15,29,51,0.05) 30%, rgba(15,29,51,0.05) 60%, rgba(15,29,51,0.5) 100%);"></div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -597,11 +589,6 @@
                     <div class="bg-white p-4 rounded-xl shadow-sm border border-divider"><div class="text-3xl font-bold text-cat-blue mb-1">+60%</div><div class="text-xs text-gray-500 uppercase tracking-wide">Gain productivite (BI)</div></div>
                     <div class="bg-white p-4 rounded-xl shadow-sm border border-divider"><div class="text-3xl font-bold text-cat-green mb-1">-75%</div><div class="text-xs text-gray-500 uppercase tracking-wide">Temps d'analyse</div></div>
                 </div>
-            </div>
-
-            <!-- Slide 7 as visual intro -->
-            <div class="mb-12 reveal-up delay-100">
-                <img src="img/slides/slide-7.webp" loading="lazy" alt="Impact mesure : REX en conditions reelles" class="slide-img w-full max-w-5xl mx-auto">
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

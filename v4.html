@@ -160,31 +160,67 @@
                 </div>
 
                 <div class="relative reveal-right delay-200 hidden lg:block">
-                    <div class="relative w-full aspect-square max-w-[520px] mx-auto">
-                        <!-- Abstract decorative orb -->
-                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/15 to-transparent backdrop-blur-sm border border-white/10 overflow-hidden">
-                            <div class="absolute top-8 left-8 w-32 h-32 rounded-full bg-blue-400/20 blur-2xl"></div>
-                            <div class="absolute bottom-12 right-8 w-40 h-40 rounded-full bg-purple-400/15 blur-2xl"></div>
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full bg-gradient-to-r from-blue-400/10 to-purple-400/10 blur-xl"></div>
-                            <!-- Floating elements -->
-                            <div class="absolute top-12 right-12 w-16 h-16 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center" style="animation: float 6s ease-in-out infinite">
-                                <span class="text-2xl">🛡️</span>
+                    <div class="relative w-full max-w-[480px] mx-auto" style="perspective: 1200px">
+                        <!-- Stacked feature cards -->
+                        <div class="relative" style="transform-style: preserve-3d">
+                            <!-- Card 3 (back) — Factory -->
+                            <div class="absolute top-6 left-6 right-0 rounded-2xl p-6 border border-white/8 bg-gradient-to-br from-[#1B2A4A]/90 to-[#0F1D33]/80 backdrop-blur-md shadow-2xl" style="transform: rotateY(-2deg) rotateX(1deg); z-index: 1">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 rounded-xl bg-orange-500/15 flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    </div>
+                                    <span class="text-white/90 font-bold text-sm tracking-wide">Factory Agentique</span>
+                                </div>
+                                <p class="text-white/40 text-xs leading-relaxed">Developpement et deploiement d'agents IA sur-mesure, migration BI, vibe coding.</p>
+                                <div class="flex gap-2 mt-3">
+                                    <span class="px-2 py-0.5 rounded-full bg-orange-400/10 text-orange-300/70 text-[10px] font-medium">Vibe Coding</span>
+                                    <span class="px-2 py-0.5 rounded-full bg-orange-400/10 text-orange-300/70 text-[10px] font-medium">Migration BI</span>
+                                </div>
                             </div>
-                            <div class="absolute bottom-16 left-12 w-14 h-14 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center" style="animation: float 6s ease-in-out infinite; animation-delay: 1s">
-                                <span class="text-2xl">🤖</span>
+                            <!-- Card 2 (middle) — Portail -->
+                            <div class="absolute top-3 left-3 right-3 rounded-2xl p-6 border border-white/10 bg-gradient-to-br from-[#1B2A4A] to-[#0F1D33]/90 backdrop-blur-md shadow-2xl" style="transform: rotateY(-1deg); z-index: 2">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                    </div>
+                                    <span class="text-white/90 font-bold text-sm tracking-wide">Portail Agentique</span>
+                                </div>
+                                <p class="text-white/40 text-xs leading-relaxed">Orchestration, supervision et gouvernance des agents IA en production.</p>
+                                <div class="flex gap-2 mt-3">
+                                    <span class="px-2 py-0.5 rounded-full bg-blue-400/10 text-blue-300/70 text-[10px] font-medium">RBAC</span>
+                                    <span class="px-2 py-0.5 rounded-full bg-blue-400/10 text-blue-300/70 text-[10px] font-medium">Telemetrie</span>
+                                    <span class="px-2 py-0.5 rounded-full bg-blue-400/10 text-blue-300/70 text-[10px] font-medium">MCP</span>
+                                </div>
                             </div>
-                            <div class="absolute top-1/3 right-1/3 w-12 h-12 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center" style="animation: float 6s ease-in-out infinite; animation-delay: 2s">
-                                <span class="text-2xl">⚡</span>
-                            </div>
-                            <div class="absolute bottom-1/3 left-1/3 w-14 h-14 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm flex items-center justify-center" style="animation: float 6s ease-in-out infinite; animation-delay: 3s">
-                                <span class="text-2xl">📊</span>
-                            </div>
-                            <!-- Central OmnIA text -->
-                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                                <div class="text-3xl font-black text-white/80 tracking-tight">OmnIA</div>
-                                <div class="text-xs text-white/40 mt-1 font-light tracking-widest uppercase">Governance Platform</div>
+                            <!-- Card 1 (front) — Conseil -->
+                            <div class="relative rounded-2xl p-7 border border-white/15 bg-gradient-to-br from-[#1B2A4A] to-[#354A6B]/60 backdrop-blur-lg shadow-[0_20px_60px_rgba(0,0,0,0.4)]" style="z-index: 3">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <div class="w-11 h-11 rounded-xl bg-purple-500/20 flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <span class="text-white font-bold text-base tracking-wide block">Conseil & Acculturation</span>
+                                        <span class="text-white/35 text-[10px] font-medium tracking-wider uppercase">Pilier 1</span>
+                                    </div>
+                                </div>
+                                <p class="text-white/50 text-sm leading-relaxed mb-4">Strategie IA, cadrage, acculturation des equipes et accompagnement au changement.</p>
+                                <div class="flex gap-2 flex-wrap">
+                                    <span class="px-2.5 py-1 rounded-full bg-purple-400/10 text-purple-300/80 text-[11px] font-medium">Strategie IA</span>
+                                    <span class="px-2.5 py-1 rounded-full bg-purple-400/10 text-purple-300/80 text-[11px] font-medium">Acculturation</span>
+                                    <span class="px-2.5 py-1 rounded-full bg-purple-400/10 text-purple-300/80 text-[11px] font-medium">Change Mgmt</span>
+                                </div>
+                                <div class="mt-5 flex items-center gap-4">
+                                    <div class="flex -space-x-2">
+                                        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-[#1B2A4A] flex items-center justify-center text-[9px] text-white font-bold">IA</div>
+                                        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-[#1B2A4A] flex items-center justify-center text-[9px] text-white font-bold">RH</div>
+                                        <div class="w-7 h-7 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 border-2 border-[#1B2A4A] flex items-center justify-center text-[9px] text-white font-bold">SI</div>
+                                    </div>
+                                    <span class="text-white/30 text-[10px]">Equipes accompagnees</span>
+                                </div>
                             </div>
                         </div>
+                        <!-- Subtle glow behind cards -->
+                        <div class="absolute -inset-8 bg-gradient-to-br from-blue-500/8 via-purple-500/5 to-transparent rounded-full blur-3xl -z-10"></div>
                     </div>
                 </div>
             </div>
@@ -311,6 +347,10 @@
                         <img src="img/logos/carglass.svg" alt="Carglass" class="logo-item on-dark" />
                         <img src="img/logos/pluxee.svg" alt="Pluxee" class="logo-item on-dark" />
                         <img src="img/logos/the-kooples.svg" alt="The Kooples" class="logo-item on-dark" />
+                        <img src="img/logos/cma-cgm.svg" alt="CMA CGM" class="logo-item on-dark" />
+                        <img src="img/logos/regicom.svg" alt="Regicom" class="logo-item on-dark" />
+                        <img src="img/logos/nearcare.svg" alt="Nearcare" class="logo-item on-dark" />
+                        <!-- duplicate for seamless loop -->
                         <img src="img/logos/stet.svg" alt="STET" class="logo-item on-dark" />
                         <img src="img/logos/europ-assistance.svg" alt="Europ Assistance" class="logo-item on-dark" />
                         <img src="img/logos/societe-generale.svg" alt="Société Générale" class="logo-item on-dark" />
@@ -343,6 +383,9 @@
                         <img src="img/logos/carglass.svg" alt="Carglass" class="logo-item on-dark" />
                         <img src="img/logos/pluxee.svg" alt="Pluxee" class="logo-item on-dark" />
                         <img src="img/logos/the-kooples.svg" alt="The Kooples" class="logo-item on-dark" />
+                        <img src="img/logos/cma-cgm.svg" alt="CMA CGM" class="logo-item on-dark" />
+                        <img src="img/logos/regicom.svg" alt="Regicom" class="logo-item on-dark" />
+                        <img src="img/logos/nearcare.svg" alt="Nearcare" class="logo-item on-dark" />
                     </div>
                 </div>
             </div>
@@ -398,23 +441,48 @@
             </div>
             <div class="mb-10 reveal-up delay-100">
                 <div class="marquee-wrap on-light py-3">
-                    <div class="logo-marquee-track" style="--duration:20s">
-                        <img src="img/logos/bollore.webp" alt="bollore" class="logo-item">
-                        <img src="img/logos/saint-gobain.webp" alt="saint-gobain" class="logo-item">
-                        <img src="img/logos/regicom.webp" alt="regicom" class="logo-item">
-                        <img src="img/logos/nearcare.webp" alt="nearcare" class="logo-item">
-                        <img src="img/logos/bollore.webp" alt="bollore" class="logo-item">
-                        <img src="img/logos/saint-gobain.webp" alt="saint-gobain" class="logo-item">
-                        <img src="img/logos/regicom.webp" alt="regicom" class="logo-item">
-                        <img src="img/logos/nearcare.webp" alt="nearcare" class="logo-item">
-                        <img src="img/logos/bollore.webp" alt="bollore" class="logo-item">
-                        <img src="img/logos/saint-gobain.webp" alt="saint-gobain" class="logo-item">
-                        <img src="img/logos/regicom.webp" alt="regicom" class="logo-item">
-                        <img src="img/logos/nearcare.webp" alt="nearcare" class="logo-item">
-                        <img src="img/logos/bollore.webp" alt="bollore" class="logo-item">
-                        <img src="img/logos/saint-gobain.webp" alt="saint-gobain" class="logo-item">
-                        <img src="img/logos/regicom.webp" alt="regicom" class="logo-item">
-                        <img src="img/logos/nearcare.webp" alt="nearcare" class="logo-item">
+                    <div class="logo-marquee-track" style="--duration:45s">
+                        <img src="img/logos/stet.svg" alt="STET" class="logo-item" />
+                        <img src="img/logos/europ-assistance.svg" alt="Europ Assistance" class="logo-item" />
+                        <img src="img/logos/societe-generale.svg" alt="Société Générale" class="logo-item" />
+                        <img src="img/logos/bollore.svg" alt="Bolloré" class="logo-item" />
+                        <img src="img/logos/saint-gobain.svg" alt="Saint-Gobain" class="logo-item" />
+                        <img src="img/logos/essilor.svg" alt="Essilor" class="logo-item" />
+                        <img src="img/logos/sephora.svg" alt="Sephora" class="logo-item" />
+                        <img src="img/logos/kering.svg" alt="Kering" class="logo-item" />
+                        <img src="img/logos/lvmh.svg" alt="LVMH" class="logo-item" />
+                        <img src="img/logos/air-france.svg" alt="Air France" class="logo-item" />
+                        <img src="img/logos/cma-cgm.svg" alt="CMA CGM" class="logo-item" />
+                        <img src="img/logos/dassault-systemes.svg" alt="Dassault Systèmes" class="logo-item" />
+                        <img src="img/logos/edf-renouvelables.svg" alt="EDF Renouvelables" class="logo-item" />
+                        <img src="img/logos/christian-dior.svg" alt="Christian Dior" class="logo-item" />
+                        <img src="img/logos/saint-laurent.svg" alt="Saint Laurent" class="logo-item" />
+                        <img src="img/logos/bpce.svg" alt="Groupe BPCE" class="logo-item" />
+                        <img src="img/logos/lazard.svg" alt="Lazard" class="logo-item" />
+                        <img src="img/logos/regicom.svg" alt="Regicom" class="logo-item" />
+                        <img src="img/logos/nearcare.svg" alt="Nearcare" class="logo-item" />
+                        <img src="img/logos/carglass.svg" alt="Carglass" class="logo-item" />
+                        <!-- duplicate for seamless loop -->
+                        <img src="img/logos/stet.svg" alt="STET" class="logo-item" />
+                        <img src="img/logos/europ-assistance.svg" alt="Europ Assistance" class="logo-item" />
+                        <img src="img/logos/societe-generale.svg" alt="Société Générale" class="logo-item" />
+                        <img src="img/logos/bollore.svg" alt="Bolloré" class="logo-item" />
+                        <img src="img/logos/saint-gobain.svg" alt="Saint-Gobain" class="logo-item" />
+                        <img src="img/logos/essilor.svg" alt="Essilor" class="logo-item" />
+                        <img src="img/logos/sephora.svg" alt="Sephora" class="logo-item" />
+                        <img src="img/logos/kering.svg" alt="Kering" class="logo-item" />
+                        <img src="img/logos/lvmh.svg" alt="LVMH" class="logo-item" />
+                        <img src="img/logos/air-france.svg" alt="Air France" class="logo-item" />
+                        <img src="img/logos/cma-cgm.svg" alt="CMA CGM" class="logo-item" />
+                        <img src="img/logos/dassault-systemes.svg" alt="Dassault Systèmes" class="logo-item" />
+                        <img src="img/logos/edf-renouvelables.svg" alt="EDF Renouvelables" class="logo-item" />
+                        <img src="img/logos/christian-dior.svg" alt="Christian Dior" class="logo-item" />
+                        <img src="img/logos/saint-laurent.svg" alt="Saint Laurent" class="logo-item" />
+                        <img src="img/logos/bpce.svg" alt="Groupe BPCE" class="logo-item" />
+                        <img src="img/logos/lazard.svg" alt="Lazard" class="logo-item" />
+                        <img src="img/logos/regicom.svg" alt="Regicom" class="logo-item" />
+                        <img src="img/logos/nearcare.svg" alt="Nearcare" class="logo-item" />
+                        <img src="img/logos/carglass.svg" alt="Carglass" class="logo-item" />
                     </div>
                 </div>
             </div>

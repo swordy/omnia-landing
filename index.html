@@ -207,64 +207,108 @@ h4 { font-size: 16px; font-weight: 600; line-height: 1.4; }
 }
 
 .carousel-container {
-  position: relative; margin-top: 48px; height: 320px;
-  border-radius: 16px; overflow: hidden;
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+  position: relative; margin-top: 56px;
+  border-radius: 20px; overflow: hidden;
+  background: linear-gradient(135deg, rgba(124,58,237,0.08), rgba(29,78,216,0.06), rgba(5,150,105,0.04));
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(12px);
+}
+.carousel-viewport {
+  overflow: hidden;
 }
 .carousel-slides {
-  display: flex; height: 100%;
-  animation: carouselScroll 15s ease-in-out infinite;
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .carousel-slide {
-  min-width: 100%; display: flex; align-items: center; padding: 48px;
-  gap: 32px; flex-shrink: 0;
+  min-width: 100%; flex-shrink: 0;
+  padding: 52px 56px 60px;
 }
-.carousel-slide:nth-child(2) {
-  animation: slideIn 15s ease-in-out infinite;
-  animation-delay: 0s;
-}
-@keyframes carouselScroll {
-  0% { transform: translateX(0); }
-  33.33% { transform: translateX(-100%); }
-  66.66% { transform: translateX(-200%); }
-  100% { transform: translateX(0); }
+.carousel-slide-inner {
+  display: grid; grid-template-columns: 80px 1fr; gap: 36px; align-items: start;
 }
 .carousel-icon {
-  font-size: 64px; flex-shrink: 0;
+  width: 80px; height: 80px; border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; flex-shrink: 0;
+}
+.carousel-icon-blue { background: linear-gradient(135deg, rgba(29,78,216,0.25), rgba(29,78,216,0.08)); border: 1px solid rgba(29,78,216,0.2); }
+.carousel-icon-purple { background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(124,58,237,0.08)); border: 1px solid rgba(124,58,237,0.2); }
+.carousel-icon-green { background: linear-gradient(135deg, rgba(5,150,105,0.25), rgba(5,150,105,0.08)); border: 1px solid rgba(5,150,105,0.2); }
+.carousel-slide-number {
+  font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 10px;
 }
 .carousel-content h3 {
-  color: #ECEEF2; margin-bottom: 12px; font-size: 24px;
+  color: #ECEEF2; margin-bottom: 16px; font-size: 26px; font-weight: 500; letter-spacing: -0.3px;
 }
 .carousel-content p {
-  color: rgba(255,255,255,0.65); font-size: 14px; line-height: 1.65;
-  margin-bottom: 16px;
+  color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7;
+  margin-bottom: 20px; max-width: 640px;
 }
+.carousel-highlights {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+}
+.carousel-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 500;
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.carousel-tag span { font-size: 14px; }
 .carousel-cta {
-  display: inline-flex;
-  padding: 10px 24px; background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.25); border-radius: 6px;
-  color: var(--white); font-size: 13px; font-weight: 600;
-  text-decoration: none; cursor: pointer; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 28px; background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25); border-radius: 8px;
+  color: var(--white); font-size: 14px; font-weight: 600;
+  text-decoration: none; cursor: pointer; transition: all 0.25s;
+  letter-spacing: 0.2px;
 }
 .carousel-cta:hover {
-  background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.45);
+  transform: translateX(4px);
+}
+.carousel-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px 28px;
 }
 .carousel-dots {
-  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 8px;
+  display: flex; gap: 10px; align-items: center;
 }
 .carousel-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: rgba(255,255,255,0.3); cursor: pointer;
-  transition: all 0.3s;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); cursor: pointer;
+  transition: all 0.4s; border: none;
 }
 .carousel-dot.active {
-  background: rgba(255,255,255,0.9); width: 24px; border-radius: 4px;
+  background: var(--white); width: 32px; border-radius: 5px;
+}
+.carousel-arrows {
+  display: flex; gap: 8px;
+}
+.carousel-arrow {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.7); font-size: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.carousel-arrow:hover { background: rgba(255,255,255,0.15); color: var(--white); }
+.carousel-progress {
+  position: absolute; bottom: 0; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--cat-purple), var(--cat-blue));
+  border-radius: 0 0 20px 20px;
+  animation: carouselProgress 5s linear infinite;
+}
+@keyframes carouselProgress {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }
 
 .hero-content {
-  position: relative; z-index: 2; max-width: 720px;
+  position: relative; z-index: 2; max-width: 100%;
 }
+.hero-headline { max-width: 720px; }
 .hero-content .eyebrow { color: var(--cat-purple); margin-bottom: 24px; }
 .hero-content h1 { color: #ECEEF2; margin-bottom: 24px; }
 .hero-content h1 strong { font-weight: 600; }
@@ -398,7 +442,12 @@ h4 { font-size: 16px; font-weight: 600; line-height: 1.4; }
   .pillar { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
   .offers-grid { grid-template-columns: 1fr; }
   .problem-grid { grid-template-columns: 1fr; }
-  .carousel-slide { flex-direction: column; padding: 32px; }
+  .carousel-slide { padding: 28px 24px 32px; }
+  .carousel-slide-inner { grid-template-columns: 1fr; gap: 16px; }
+  .carousel-icon { width: 56px; height: 56px; font-size: 26px; border-radius: 14px; }
+  .carousel-content h3 { font-size: 20px; }
+  .carousel-nav { padding: 0 24px 20px; }
+  .carousel-arrows { display: none; }
 }
 
 .features-grid {
@@ -706,44 +755,88 @@ h4 { font-size: 16px; font-weight: 600; line-height: 1.4; }
     <div class="hero-orb hero-orb-3"></div>
     <div class="particle-field" id="particles"></div>
   </div>
-  <div class="container" style="position:relative;z-index:2;">
+  <div class="container-wide" style="position:relative;z-index:2;">
     <div class="hero-content">
-      <span class="eyebrow">Gouvernance, Développement & Orchestration IA</span>
-      <h1>L'IA d'entreprise, transformée.<br><strong>Acculturation, Factory, Portail.</strong></h1>
-      <p class="hero-desc">Harington propose trois offres complémentaires pour maîtriser l'IA en entreprise : former vos équipes, développer des solutions sur-mesure, ou gouverner vos usages IA via une plateforme sécurisée et conforme.</p>
+      <div class="hero-headline">
+        <span class="eyebrow">Harington Technologies — Offre OmnIA</span>
+        <h1>Structurez, développez et gouvernez<br><strong>votre IA d'entreprise.</strong></h1>
+        <p class="hero-desc">Tout le monde utilise ChatGPT. Personne ne gouverne. Harington vous accompagne de la formation de vos équipes jusqu'au déploiement d'un portail IA sécurisé et conforme — en passant par le développement sur-mesure de solutions agentiques.</p>
+      </div>
 
       <div class="carousel-container">
-        <div class="carousel-slides">
-          <div class="carousel-slide">
-            <div class="carousel-icon">🎓</div>
-            <div class="carousel-content">
-              <h3>Acculturation & Conseil IA</h3>
-              <p>Formations en vibe coding, audits des usages IA existants, stratégie LLMOps, cadrage gouvernance et frameworks de conformité. Structurer votre démarche IA avant d'investir.</p>
-              <a href="#offers" class="carousel-cta">En savoir plus &rarr;</a>
+        <div class="carousel-viewport">
+          <div class="carousel-slides" id="carousel-slides">
+            <!-- Slide 1 : Acculturation -->
+            <div class="carousel-slide">
+              <div class="carousel-slide-inner">
+                <div class="carousel-icon carousel-icon-blue">🎓</div>
+                <div class="carousel-content">
+                  <div class="carousel-slide-number">Offre 01 / 03</div>
+                  <h3>Acculturation & Conseil IA</h3>
+                  <p>Former vos équipes au vibe coding avec méthodologie et prudence. Auditer vos usages IA existants. Définir votre stratégie LLMOps et votre cadre de gouvernance. Nous intervenons avant que vous investissiez pour structurer une démarche IA solide, pragmatique et alignée sur vos enjeux métier.</p>
+                  <div class="carousel-highlights">
+                    <span class="carousel-tag"><span>&#9889;</span> Vibe coding</span>
+                    <span class="carousel-tag"><span>&#128270;</span> Audit usages IA</span>
+                    <span class="carousel-tag"><span>&#128736;</span> Stratégie LLMOps</span>
+                    <span class="carousel-tag"><span>&#128203;</span> Cadrage gouvernance</span>
+                    <span class="carousel-tag"><span>&#9878;</span> Conformité AI Act</span>
+                  </div>
+                  <a href="#offers" class="carousel-cta">En savoir plus &rarr;</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="carousel-slide">
-            <div class="carousel-icon">⚙️</div>
-            <div class="carousel-content">
-              <h3>Factory Agentique</h3>
-              <p>Développement sur-mesure de solutions IA métier : migration BI, pipelines agentiques, applications collaboratives, plateformes de transformation. Build & Transfer : vous repartez avec le code et l'autonomie.</p>
-              <a href="#factory" class="carousel-cta">Explorer &rarr;</a>
+            <!-- Slide 2 : Factory -->
+            <div class="carousel-slide">
+              <div class="carousel-slide-inner">
+                <div class="carousel-icon carousel-icon-purple">&#9881;</div>
+                <div class="carousel-content">
+                  <div class="carousel-slide-number">Offre 02 / 03</div>
+                  <h3>Factory Agentique</h3>
+                  <p>Une factory de développement dopée par des brains affûtés et un catalogue d'assistants boostés par des skills, des outils et des MCP rodés. Création d'agents à la volée, orchestration de processus complexes, chaînages multi-agents. Chaque projet suit notre méthode Build & Transfer : vous repartez avec le code source et l'autonomie opérationnelle.</p>
+                  <div class="carousel-highlights">
+                    <span class="carousel-tag"><span>&#129302;</span> Agents sur-mesure</span>
+                    <span class="carousel-tag"><span>&#128256;</span> Chaînages complexes</span>
+                    <span class="carousel-tag"><span>&#128218;</span> Brains & Skills</span>
+                    <span class="carousel-tag"><span>&#128268;</span> Connecteurs MCP</span>
+                    <span class="carousel-tag"><span>&#128230;</span> Build & Transfer</span>
+                  </div>
+                  <a href="#factory" class="carousel-cta">Explorer la factory &rarr;</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="carousel-slide">
-            <div class="carousel-icon">🏛️</div>
-            <div class="carousel-content">
-              <h3>Portail OmnIA</h3>
-              <p>Plateforme de gouvernance, orchestration et supervision des agents IA. Multi-modèle, conformité AI Act, déploiement souverain, gestion des droits et visibilité complète sur les usages.</p>
-              <a href="#solution" class="carousel-cta">Découvrir &rarr;</a>
+            <!-- Slide 3 : Portail -->
+            <div class="carousel-slide">
+              <div class="carousel-slide-inner">
+                <div class="carousel-icon carousel-icon-green">&#127963;</div>
+                <div class="carousel-content">
+                  <div class="carousel-slide-number">Offre 03 / 03</div>
+                  <h3>Portail OmnIA</h3>
+                  <p>Le socle de gouvernance, sécurité, confidentialité et modération qui fait dissiper les doutes liés à l'introduction de l'IA. Portail multi-modèle, conformité AI Act native, gestion des droits granulaire, télémétrie complète des coûts et usages. Vos collaborateurs accèdent à l'IA via un hub sécurisé — au lieu de ChatGPT en roue libre.</p>
+                  <div class="carousel-highlights">
+                    <span class="carousel-tag"><span>&#128274;</span> Gouvernance</span>
+                    <span class="carousel-tag"><span>&#128737;</span> Sécurité & PII</span>
+                    <span class="carousel-tag"><span>&#128202;</span> Télémétrie</span>
+                    <span class="carousel-tag"><span>&#128101;</span> Droits & accès</span>
+                    <span class="carousel-tag"><span>&#127760;</span> Souverain</span>
+                  </div>
+                  <a href="#solution" class="carousel-cta">Découvrir le portail &rarr;</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="carousel-dots">
-          <div class="carousel-dot active" onclick="goToSlide(0)"></div>
-          <div class="carousel-dot" onclick="goToSlide(1)"></div>
-          <div class="carousel-dot" onclick="goToSlide(2)"></div>
+        <div class="carousel-nav">
+          <div class="carousel-dots">
+            <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+            <div class="carousel-dot" onclick="goToSlide(1)"></div>
+            <div class="carousel-dot" onclick="goToSlide(2)"></div>
+          </div>
+          <div class="carousel-arrows">
+            <button class="carousel-arrow" onclick="goToSlide((currentSlide-1+3)%3)">&#8592;</button>
+            <button class="carousel-arrow" onclick="goToSlide((currentSlide+1)%3)">&#8594;</button>
+          </div>
         </div>
+        <div class="carousel-progress"></div>
       </div>
 
       <div class="hero-proof" style="margin-top:56px;">
@@ -1689,25 +1782,37 @@ h4 { font-size: 16px; font-weight: 600; line-height: 1.4; }
 
 <script>
 let currentSlide = 0;
+let autoplayTimer = null;
 
 function goToSlide(n) {
-  const slides = document.querySelectorAll('.carousel-slide');
+  const container = document.getElementById('carousel-slides');
   const dots = document.querySelectorAll('.carousel-dot');
-  const container = document.querySelector('.carousel-slides');
+  const progress = document.querySelector('.carousel-progress');
 
   currentSlide = n;
-  container.style.animation = 'none';
-  setTimeout(() => {
-    container.style.transform = `translateX(${-100 * n}%)`;
-    container.style.animation = 'none';
-  }, 10);
+  container.style.transform = 'translateX(' + (-100 * n) + '%)';
 
-  dots.forEach((dot, idx) => {
+  dots.forEach(function(dot, idx) {
     dot.classList.toggle('active', idx === n);
   });
+
+  // Restart progress bar animation
+  if (progress) {
+    progress.style.animation = 'none';
+    progress.offsetHeight; // force reflow
+    progress.style.animation = 'carouselProgress 5s linear infinite';
+  }
+
+  // Reset autoplay timer
+  clearInterval(autoplayTimer);
+  autoplayTimer = setInterval(function() {
+    currentSlide = (currentSlide + 1) % 3;
+    goToSlide(currentSlide);
+  }, 5000);
 }
 
-setInterval(() => {
+// Start autoplay
+autoplayTimer = setInterval(function() {
   currentSlide = (currentSlide + 1) % 3;
   goToSlide(currentSlide);
 }, 5000);

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmnIA — Gouvernance et Factory Agentique par Harington</title>
+    <meta name="description" content="Conseil IA, Factory Agentique, Portail de Gouvernance IA. Transformation IA complète : acculturation, développement sur-mesure, orchestration sécurisée.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (via CDN avec configuration des couleurs personnalisées) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0F1D33',
+                            mid: '#1B2A4A',
+                            light: '#354A6B',
+                        },
+                        bg: {
+                            DEFAULT: '#EFF1F5',
+                            alt: '#E4E6EC',
+                        },
+                        card: '#D8DCE3',
+                        divider: '#D5D8DE',
+                        cat: {
+                            blue: '#1D4ED8',
+                            purple: '#7C3AED',
+                            orange: '#D97706',
+                            green: '#059669',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for specialized animations and elements -->
+    <style>
+        body {
+            background-color: #EFF1F5;
+            color: #0F1D33;
+            overflow-x: hidden;
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .is-visible {
+            opacity: 1 !important;
+            transform: translate(0, 0) !important;
+        }
+
+        /* Staggered delays */
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Particles System */
+        #particles-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            from { transform: translateY(100vh) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            to { transform: translateY(-10vh) translateX(50px); opacity: 0; }
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(15, 29, 51, 0.05);
+        }
+        .glass-dark {
+            background: rgba(27, 42, 74, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom Gradients */
+        .text-gradient {
+            background: linear-gradient(135deg, #354A6B, #1D4ED8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-light {
+            background: linear-gradient(135deg, #FFFFFF, #D8DCE3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cat-blue selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded bg-cat-blue flex items-center justify-center text-white font-bold text-xl leading-none">O</div>
+                <span class="text-xl font-bold text-white tracking-tight" id="nav-logo-text">OmnIA <span class="text-cat-blue font-medium text-sm ml-1">par Harington</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-200" id="nav-links">
+                <a href="#enjeux" class="hover:text-white transition-colors">Le Défi</a>
+                <a href="#solutions" class="hover:text-white transition-colors">Notre Approche</a>
+                <a href="#factory" class="hover:text-white transition-colors">La Factory</a>
+                <a href="#rex" class="hover:text-white transition-colors">Cas Clients (REX)</a>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex bg-white text-navy font-semibold px-5 py-2.5 rounded-full hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm">
+                Déployer l'IA
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 pb-32 overflow-hidden bg-navy">
+        <!-- Background Elements -->
+        <div id="particles-container"></div>
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-cat-blue opacity-20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob"></div>
+        <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cat-purple opacity-20 rounded-full mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-light/50 border border-white/10 text-white/90 text-sm mb-6 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                        Gouvernance IA d'Entreprise Sécurisée
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+                        Ne subissez plus l'IA.<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Orchestrez-la.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 font-light leading-relaxed">
+                        Vos collaborateurs utilisent déjà des IA génératives en silo. Transformez ce risque en un avantage concurrentiel majeur. <strong>OmnIA</strong> est votre plateforme agentique unifiée : un toit sécurisé pour l'innovation, des assistants métier sur-mesure, et une factory de développement sans limite.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#solutions" class="px-8 py-4 rounded-lg bg-cat-blue text-white font-semibold text-center hover:bg-blue-600 transition-all shadow-lg hover:shadow-blue-500/30 flex items-center justify-center gap-2">
+                            Découvrir les 3 piliers
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                        </a>
+                        <a href="#rex" class="px-8 py-4 rounded-lg bg-navy-light border border-white/10 text-white font-semibold text-center hover:bg-navy-mid transition-all flex items-center justify-center gap-2">
+                            Voir nos résultats (REX)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual / Dashboard Mockup -->
+                <div class="relative reveal-right delay-200 hidden lg:block">
+                    <div class="glass-dark rounded-2xl p-6 shadow-2xl border border-white/10 transform rotate-2 hover:rotate-0 transition-all duration-500">
+                        <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <span class="text-xs text-gray-400 font-mono">OmnIA Dashboard / PulseBoard</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center bg-navy/50 p-4 rounded-lg border border-white/5">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 bg-cat-blue/20 rounded-md text-blue-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-white font-medium">Gouvernance RBAC/ABAC</div>
+                                        <div class="text-xs text-green-400">Actif - 100% sécurisé</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center bg-navy/50 p-4 rounded-lg border border-white/5">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 bg-cat-purple/20 rounded-md text-purple-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-white font-medium">Agents Initialisés (Skills + MCP)</div>
+                                        <div class="text-xs text-gray-400">42 agents en production</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center bg-navy/50 p-4 rounded-lg border border-white/5">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 bg-cat-orange/20 rounded-md text-orange-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-white font-medium">Golden Universe - PearlFlow</div>
+                                        <div class="text-xs text-blue-400">Déploiement en cours...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enjeux / DSI Dilemma Section -->
+    <section id="enjeux" class="py-24 bg-bg relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Le paradoxe des décideurs IT</h2>
+                <p class="text-gray-600 text-lg">Aujourd'hui, tout le monde utilise l'IA (comme ChatGPT) en marge des systèmes d'information, générant un risque majeur de confidentialité. Ne freinez pas l'innovation : encadrez-la.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center glass-card p-8 rounded-2xl reveal-up delay-100">
+                <div>
+                    <h3 class="text-2xl font-bold text-navy mb-4 flex items-center gap-3">
+                        <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        Le risque du Shadow AI
+                    </h3>
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            Fuite de données sensibles (IP, stratégies) vers des modèles publics.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            Absence de traçabilité et de contrôle des accès (Gouvernance nulle).
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-gray-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            Solutions non intégrées aux processus métiers de l'entreprise.
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-navy rounded-xl p-8 text-white relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-cat-blue opacity-30 rounded-full blur-xl"></div>
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        La promesse OmnIA
+                    </h3>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-cat-blue mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Espaces de travail privés, sécurisés et hermétiques (RBAC, ABAC).
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-cat-blue mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Modération, auditabilité totale et conformité RGPD assurée.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-cat-blue mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Agents connectés à vos outils via des outils et MCP initialisés.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Les 3 Volets Section -->
+    <section id="solutions" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal-up">
+                <span class="text-cat-blue font-bold tracking-wider uppercase text-sm mb-2 block">L'offre Harington Technologies</span>
+                <h2 class="text-4xl font-bold text-navy mb-4">Une approche globale, de l'humain à l'infrastructure</h2>
+                <p class="text-gray-600 text-lg">OmnIA ne se contente pas de fournir des outils. Nous structurons votre transformation IA autour de 3 piliers robustes.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Volet 1 : Conseil -->
+                <div class="bg-bg rounded-2xl p-8 border border-divider hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 reveal-up">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-cat-purple">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy mb-3">1. Conseil & Acculturation</h3>
+                    <p class="text-gray-600 mb-6 line-clamp-3 hover:line-clamp-none transition-all">
+                        Former vos équipes pour maximiser l'adoption tout en minimisant les risques. L'IA n'est puissante que si vos équipes savent la diriger.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-700 font-medium">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-cat-purple"></div> Formation au <strong>Vibe Coding</strong> (méthodologie et prudence)</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-cat-purple"></div> Transfert de compétences métiers</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-cat-purple"></div> Stratégies d'architecture et Urbanisation SI</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-cat-purple"></div> Aide à la décision pour décideurs et DSI</li>
+                    </ul>
+                </div>
+
+                <!-- Volet 2 : Portail Agentique -->
+                <div class="bg-navy rounded-2xl p-8 border border-navy-light hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 reveal-up delay-100 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cat-blue opacity-10 rounded-full blur-2xl group-hover:opacity-30 transition-opacity"></div>
+                    <div class="w-14 h-14 bg-navy-mid border border-white/10 rounded-xl flex items-center justify-center mb-6 text-blue-400">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">2. Portail Agentique Sécurisé</h3>
+                    <p class="text-gray-300 mb-6 line-clamp-3 hover:line-clamp-none transition-all">
+                        Le socle de gouvernance indispensable. Remplacez l'utilisation éparpillée de l'IA par un environnement maîtrisé et hautement sécurisé.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-200 font-medium">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> <strong>Gouvernance, RBAC, ABAC</strong> & Traçabilité</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Espace privé et gestion de la confidentialité</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Catalogue d'assistants et agents initialisés</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-blue-400"></div> Pipelines métiers complexes, <strong>Skills, MCP et Tools</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Volet 3 : Factory Agentique -->
+                <div id="factory" class="bg-bg rounded-2xl p-8 border border-divider hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 reveal-up delay-200">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-cat-orange">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-navy mb-3">3. Factory Agentique</h3>
+                    <p class="text-gray-600 mb-6 line-clamp-3 hover:line-clamp-none transition-all">
+                        Une usine logicielle dopée à l'IA avec des "brains" affûtés pour créer vos agents à la volée et migrer vos systèmes à l'échelle.
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-700 font-medium">
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-cat-orange"></div> <strong>Golden Universe</strong> & PulseBoard (Orchestrateur)</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-cat-orange"></div> Création et programmation d'agents à la volée</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-cat-orange"></div> <strong>PearlFlow</strong> & Enchaînements de process complexes</li>
+                        <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 rounded-full bg-cat-orange"></div> <strong>FlowMigrator</strong> & Migration BI Factory automatisée</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REX / Cas Clients Section -->
+    <section id="rex" class="py-24 bg-bg relative overflow-hidden">
+        <!-- Background decors -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-card opacity-50 skew-x-12 transform origin-top-right -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-up">
+                <div class="max-w-2xl">
+                    <span class="text-cat-blue font-bold tracking-wider uppercase text-sm mb-2 block">Retours d'Expérience (REX)</span>
+                    <h2 class="text-4xl font-bold text-navy mb-4">Ils ont franchi le cap avec Harington</h2>
+                    <p class="text-gray-600 text-lg">Des résultats tangibles sur la productivité, la sécurité et l'accélération des projets (Time-to-Value) en conditions réelles.</p>
+                </div>
+                <div class="mt-6 md:mt-0 flex gap-4 text-center">
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-divider">
+                        <div class="text-3xl font-bold text-cat-blue mb-1">+60%</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Gain productivité (BI)</div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-divider">
+                        <div class="text-3xl font-bold text-cat-green mb-1">-75%</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Temps phase d'analyse</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- REX 1 : McDonald's -->
+                <div class="glass-card p-8 rounded-2xl reveal-up border-t-4 border-t-cat-orange">
+                    <div class="text-gray-400 mb-4 h-10 flex items-center">
+                        <!-- McDonald's placeholder icon -->
+                        <span class="text-xl font-bold text-navy">McDonald's</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-2">Modernisation IT / IA</h4>
+                    <p class="text-sm text-gray-600 mb-4">Utilisation de la Factory Agentique pour automatiser les tâches répétitives et améliorer la vélocité des projets de modernisation IT.</p>
+                    <div class="inline-block px-3 py-1 bg-orange-100 text-cat-orange text-xs font-bold rounded-full">IA for IT</div>
+                </div>
+
+                <!-- REX 2 : Bolloré -->
+                <div class="glass-card p-8 rounded-2xl reveal-up delay-100 border-t-4 border-t-cat-blue">
+                    <div class="text-gray-400 mb-4 h-10 flex items-center">
+                        <span class="text-xl font-bold text-navy">Bolloré</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-2">Migration & DevOps</h4>
+                    <p class="text-sm text-gray-600 mb-4">Intégration d'agents intelligents dans les pipelines DevOps pour sécuriser et accélérer les déploiements à grande échelle.</p>
+                    <div class="inline-block px-3 py-1 bg-blue-100 text-cat-blue text-xs font-bold rounded-full">Pipelines Complexes</div>
+                </div>
+
+                <!-- REX 3 : Saint-Gobain -->
+                <div class="glass-card p-8 rounded-2xl reveal-up delay-200 border-t-4 border-t-cat-green">
+                    <div class="text-gray-400 mb-4 h-10 flex items-center">
+                        <span class="text-xl font-bold text-navy">Saint-Gobain</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-2">IA for Business</h4>
+                    <p class="text-sm text-gray-600 mb-4">Mise en place d'assistants contextualisés intégrés aux outils métier sous un socle de gouvernance stricte (RGPD, auditabilité).</p>
+                    <div class="inline-block px-3 py-1 bg-green-100 text-cat-green text-xs font-bold rounded-full">Portail Sécurisé</div>
+                </div>
+
+                <!-- REX 4 : Corsair -->
+                <div class="glass-card p-8 rounded-2xl reveal-up delay-300 border-t-4 border-t-cat-purple">
+                    <div class="text-gray-400 mb-4 h-10 flex items-center">
+                        <span class="text-xl font-bold text-navy">Corsair</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-navy mb-2">BI Migration Factory</h4>
+                    <p class="text-sm text-gray-600 mb-4">Rationalisation du parc de rapports et automatisation via <strong>FlowMigrator</strong> (MicroStrategy vers PowerBI). -38% d'économie globale.</p>
+                    <div class="inline-block px-3 py-1 bg-purple-100 text-cat-purple text-xs font-bold rounded-full">Migration BI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-navy relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')]"></div>
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center reveal-up">
+            <h2 class="text-4xl font-bold text-white mb-6">Prêt à orchestrer votre révolution IA ?</h2>
+            <p class="text-xl text-gray-300 mb-10 font-light">
+                Harington Technologies, c'est 450 experts, 47M€ de CA et une expertise prouvée. Reprenez le contrôle, sécurisez vos données et dotez vos équipes de super-pouvoirs.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="px-8 py-4 rounded-lg bg-white text-navy font-bold hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                    Demander une démo du Portail
+                </button>
+                <button class="px-8 py-4 rounded-lg border border-white/20 text-white font-semibold hover:bg-white/10 transition-all">
+                    Parler à nos experts Vibe Coding
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-mid border-t border-white/10 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <div class="w-6 h-6 rounded bg-cat-blue flex items-center justify-center text-white font-bold text-sm">O</div>
+                <span class="text-lg font-bold text-white">OmnIA <span class="text-gray-400 font-medium text-sm">par Harington</span></span>
+            </div>
+            <div class="text-gray-400 text-sm">
+                &copy; 2026 Harington Technologies. Tous droits réservés. Certifié ISO 27001/27701.
+            </div>
+            <div class="flex gap-4 mt-4 md:mt-0 text-sm">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Mentions légales</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Particles logic (kept and refined from original index.html)
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('particles-container');
+            if(container) {
+                for (let i = 0; i < 40; i++) {
+                    const p = document.createElement('div');
+                    p.className = 'particle';
+                    p.style.left = Math.random() * 100 + '%';
+                    p.style.width = (Math.random() * 4 + 2) + 'px';
+                    p.style.height = p.style.width;
+                    p.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                    p.style.animationDelay = (Math.random() * 5) + 's';
+                    container.appendChild(p);
+                }
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const logoText = document.getElementById('nav-logo-text');
+            const links = document.getElementById('nav-links');
+            
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                nav.classList.remove('bg-transparent', 'py-4');
+                logoText.classList.replace('text-white', 'text-navy');
+                links.classList.replace('text-gray-200', 'text-gray-600');
+            } else {
+                nav.classList.add('bg-transparent', 'py-4');
+                nav.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+                logoText.classList.replace('text-navy', 'text-white');
+                links.classList.replace('text-gray-600', 'text-gray-200');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -49,7 +49,7 @@
         .backdrop-enter-active { opacity: 1; transition: opacity 0.4s ease; }
         .backdrop-leave-active { opacity: 0; transition: opacity 0.3s ease; }
         .nav-scrolled .nav-logo-img { filter: none; }
-        .nav-scrolled .harington-mark { color: #0F1D33 !important; }
+        .nav-scrolled .harington-mark { filter: brightness(0); opacity: 0.9 !important; }
 
         /* ===== MARQUEE TAG CLOUD ===== */
         .marquee-wrap { overflow: hidden; position: relative; width: 100%; }
@@ -113,9 +113,9 @@
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <img src="img/omnia-logo-sm.webp" alt="OmnIA" class="nav-logo-img h-10 w-auto drop-shadow-lg">
-                <div class="h-6 w-px bg-white/20"></div>
-                <span class="harington-mark text-sm font-bold tracking-[0.15em] uppercase text-white/80 transition-colors duration-300">Harington</span>
+                <img src="img/omnia-logo-sm.webp" alt="OmnIA" class="nav-logo-img h-[52px] w-auto drop-shadow-lg">
+                <div class="h-8 w-px bg-white/20"></div>
+                <img src="img/logos/harington-blanc.webp" alt="Harington" class="harington-mark h-5 w-auto opacity-80 transition-all duration-300">
             </div>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-200" id="nav-links">
                 <a href="#enjeux" class="hover:text-white transition-colors">Le Defi</a>
@@ -811,8 +811,8 @@
     // Nav Scroll
     window.addEventListener('scroll', function(){
         var nav=document.getElementById('navbar'), links=document.getElementById('nav-links'), mark=document.querySelector('.harington-mark');
-        if(window.scrollY>50){ nav.classList.add('bg-white/95','backdrop-blur-md','shadow-sm','py-3','nav-scrolled'); nav.classList.remove('bg-transparent','py-4'); links.classList.replace('text-gray-200','text-gray-600'); if(mark) mark.style.color='#0F1D33'; }
-        else { nav.classList.add('bg-transparent','py-4'); nav.classList.remove('bg-white/95','backdrop-blur-md','shadow-sm','py-3','nav-scrolled'); links.classList.replace('text-gray-600','text-gray-200'); if(mark) mark.style.color=''; }
+        if(window.scrollY>50){ nav.classList.add('bg-white/95','backdrop-blur-md','shadow-sm','py-3','nav-scrolled'); nav.classList.remove('bg-transparent','py-4'); links.classList.replace('text-gray-200','text-gray-600'); }
+        else { nav.classList.add('bg-transparent','py-4'); nav.classList.remove('bg-white/95','backdrop-blur-md','shadow-sm','py-3','nav-scrolled'); links.classList.replace('text-gray-600','text-gray-200'); }
     });
     </script>
 </body>
